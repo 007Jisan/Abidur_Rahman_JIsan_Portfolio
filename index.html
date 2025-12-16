@@ -83,9 +83,14 @@
             background-color: #c3e6cb;
         }
         
-        /* Added space for Home Page scroll */
+        /* Home Page Content Padding */
         .home-content-container {
             padding: 30px;
+        }
+
+        /* FIX: Footer Overlap Fix */
+        .app-footer p {
+            margin-bottom: 0 !important; /* Ensure no bottom margin pushes content */
         }
     </style>
 </head>
@@ -170,9 +175,7 @@
                         src="img.jpg" 
                         alt="Abidur Rahman Jisan Photo" 
                         style="width: 220px; height: 220px; border-radius: 50%; object-fit: cover; object-position: top; border: 8px solid #28a745; box-shadow: 0 0 20px rgba(40, 167, 69, 0.5);">
-                    <p style="font-size: 0.8em; color: #6c757d; font-style: italic; margin-top: 10px;">
-                        (Make sure your image file is named `img.jpg` and is in the same folder as this HTML file.)
-                    </p>
+                    
                     <h2 class="display-6 fw-bold text-primary mt-4">Abidur Rahman Jisan</h2>
                     <h5 class="mt-2 text-muted">Final Year Software Engineering Student</h5>
                     <a href="https://github.com/007Jisan" target="_blank" class="btn btn-primary btn-lg mt-4 shadow-sm">
