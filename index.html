@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abidur Rahman Jisan - Ambitious Software Engineer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5; /* Light grey background */
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Header and Footer Styling (GREEN THEME) */
+        .app-header, .app-footer {
+            background-color: #28a745; /* Dark Green */
+            color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Custom Hover Effect for Navigation (Green/Light Green) */
+        .nav-link-custom {
+            color: #fff !important;
+            transition: color 0.3s, background-color 0.3s;
+            padding: 10px 15px !important;
+            border-radius: 5px;
+        }
+        .nav-link-custom:hover {
+            color: #ffc107 !important; /* Yellow hover color for contrast */
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Primary Green tone */
+        .text-primary { color: #28a745 !important; }
+        .btn-primary { background-color: #28a745 !important; border-color: #28a745 !important; }
+        .btn-primary:hover { background-color: #1e7e34 !important; border-color: #1e7e34 !important; }
+        .border-primary { border-color: #28a745 !important; }
+
+        /* Section Styling */
+        .content-section {
+            display: none;
+            padding: 60px 20px;
+            min-height: calc(100vh - 150px);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        /* Fade-in animation for pages */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Project Card Hover Effect */
+        .project-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(40, 167, 69, 0.3); /* Green Glow */
+        }
+
+        /* Skill Tag Styling */
+        .skill-tag {
+            background-color: #d4edda; /* Light green */
+            color: #155724;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+        .skill-tag:hover {
+            background-color: #c3e6cb;
+        }
+        
+        /* Added space for Home Page scroll */
+        .home-content-container {
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function navigateTo(pageId) {
+            const bootstrap = window.bootstrap || (window.bootstrap = {});
+
+            // Hide all pages
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show the selected page with fade effect
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.style.display = 'block';
+                selectedPage.style.opacity = 0;
+                selectedPage.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    selectedPage.style.opacity = 1;
+                    selectedPage.style.transform = 'translateY(0)';
+                }, 10);
+                
+                // Close the mobile collapse menu after selection
+                const navbarCollapse = document.getElementById('navbarNav');
+                if (bootstrap.Collapse) {
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                        toggle: false
+                    });
+                    bsCollapse.hide();
+                }
+            }
+        }
+
+        // Initialize to Home page on load
+        window.onload = function() {
+            navigateTo('home-page');
+        };
+    </script>
+
+    <header class="app-header sticky-top">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand text-white fw-bold" href="#" onclick="navigateTo('home-page')" style="font-size: 1.5rem;">
+                    <i class="fas fa-code me-2" style="color:#fff;"></i> Abidur Rahman Jisan
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="border-color: #fff;">
+                    <span class="navbar-toggler-icon" style="background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba(255, 255, 255, 1)" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E')"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <button class="nav-link nav-link-custom" onclick="navigateTo('home-page')">Home</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link nav-link-custom" onclick="navigateTo('projects-page')">My Projects</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link nav-link-custom" onclick="navigateTo('academic-page')">Academic Qualification</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link nav-link-custom" onclick="navigateTo('contact-page')">Contact</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-4">
+
+        <section id="home-page" class="content-section bg-white rounded shadow-lg" style="display: block;">
+            <div class="row align-items-center home-content-container">
+                
+                <div class="col-lg-5 text-center mb-4 mb-lg-0">
+                    
+                    <img id="user-photo" 
+                        src="img.jpg" 
+                        alt="Abidur Rahman Jisan Photo" 
+                        style="width: 220px; height: 220px; border-radius: 50%; object-fit: cover; object-position: top; border: 8px solid #28a745; box-shadow: 0 0 20px rgba(40, 167, 69, 0.5);">
+                    <p style="font-size: 0.8em; color: #6c757d; font-style: italic; margin-top: 10px;">
+                        (Make sure your image file is named `img.jpg` and is in the same folder as this HTML file.)
+                    </p>
+                    <h2 class="display-6 fw-bold text-primary mt-4">Abidur Rahman Jisan</h2>
+                    <h5 class="mt-2 text-muted">Final Year Software Engineering Student</h5>
+                    <a href="https://github.com/007Jisan" target="_blank" class="btn btn-primary btn-lg mt-4 shadow-sm">
+                        <i class="fab fa-github me-2"></i> Explore My GitHub
+                    </a>
+                </div>
+                
+                <div class="col-lg-7">
+                    <h3 class="fw-bold text-secondary mb-3">About My Journey</h3>
+                    <p class="lead mb-4">
+                        I am an ambitious Software Engineering student at **Daffodil International University**. My goal is to transition into a full-time professional role, leveraging my full-stack MERN knowledge and commitment to code quality.
+                    </p>
+                    
+                    <h4 class="text-primary mt-4">Technical Stack & Competencies:</h4>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="skill-tag">Full-Stack (MERN)</span>
+                        <span class="skill-tag">Front-end Development</span>
+                        <span class="skill-tag">Back-end Logic</span>
+                        <span class="skill-tag">Vanilla JavaScript</span>
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">SQA Principles</span>
+                        <span class="skill-tag">Communication Skill</span>
+                    </div>
+
+                    <h4 class="text-primary mt-4 border-top pt-3">Why Hire Me?</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle me-2 text-success"></i> **Quality Focus:** Actively learning SQA to ensure robust and maintainable codebases.</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2 text-success"></i> **Adaptability:** Proven ability to quickly master new technologies and frameworks.</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2 text-success"></i> **Project Experience:** Hands-on experience with diverse projects, from C systems to full-stack applications.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-5">
+            
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h3 class="text-secondary mb-4">MERN Stack Proficiency</h3>
+                </div>
+                <div class="col-md-3 text-center">
+                    <i class="fab fa-react fa-3x text-info mb-2"></i>
+                    <p class="fw-bold">React</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <i class="fab fa-node-js fa-3x text-success mb-2"></i>
+                    <p class="fw-bold">Node.js</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <i class="fas fa-server fa-3x text-danger mb-2"></i>
+                    <p class="fw-bold">Express.js</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <i class="fas fa-database fa-3x text-warning mb-2"></i>
+                    <p class="fw-bold">MongoDB</p>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-12">
+                    <blockquote class="blockquote border-start border-primary border-5 p-3 bg-light">
+                        <p class="mb-0">"My ambition is not just to write code, but to build solutions that are efficient, scalable, and tested to the highest quality standards."</p>
+                        <footer class="blockquote-footer">Abidur Rahman Jisan</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects-page" class="content-section bg-white rounded shadow-lg">
+            <h2 class="text-center text-primary mb-5 fw-bold"><i class="fas fa-rocket me-2"></i> My Featured Projects</h2>
+            
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                
+                <div class="col">
+                    <div class="card h-100 project-card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title text-success"><i class="fas fa-calculator me-2"></i> Calculator (JS)</h5>
+                            <p class="card-text text-muted">A fundamental JavaScript project demonstrating DOM manipulation and basic arithmetic logic.</p>
+                            <span class="badge bg-success">Vanilla JS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 project-card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title text-info"><i class="fas fa-cloud-sun me-2"></i> Real-time Weather App (JS)</h5>
+                            <p class="card-text text-muted">Utilized a third-party API to fetch, process, and display live weather data, emphasizing front-end integration.</p>
+                            <span class="badge bg-info">JS & API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 project-card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning"><i class="fas fa-laptop-code me-2"></i> Portfolio (Bootstrap)</h5>
+                            <p class="card-text text-muted">A previous iteration of a portfolio site, demonstrating proficiency in the Bootstrap framework for responsive design.</p>
+                            <span class="badge bg-warning text-dark">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card h-100 project-card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title text-danger"><i class="fas fa-database me-2"></i> CRUD Backend Project</h5>
+                            <p class="card-text text-muted">A full-stack project demonstrating Create, Read, Update, Delete operations (MERN stack concepts).</p>
+                            <span class="badge bg-danger">Backend/MERN</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card h-100 project-card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title text-secondary"><i class="fas fa-gavel me-2"></i> Online Bidding System (C)</h5>
+                            <p class="card-text text-muted">A system-level project showcasing programming fundamentals and logic using the C language.</p>
+                            <span class="badge bg-secondary">C Language</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card h-100 project-card shadow-sm text-center bg-light">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <h5 class="card-title text-primary"><i class="fas fa-clone fa-2x mb-3"></i></h5>
+                            <p class="card-text">Website Clone Replicas</p>
+                            <a href="https://github.com/007Jisan" target="_blank" class="btn btn-outline-primary mt-2">See More on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <section id="academic-page" class="content-section bg-white rounded shadow-lg">
+            <h2 class="text-center text-primary mb-5 fw-bold"><i class="fas fa-graduation-cap me-2"></i> Academic Qualification</h2>
+            
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="row align-items-center mb-4">
+                            <div class="col-1 text-center">
+                                <i class="fas fa-university fa-2x text-primary"></i>
+                                <div style="height: 60px; width: 2px; background-color: #28a745; margin: 5px auto;"></div>
+                            </div>
+                            <div class="col-11">
+                                <div class="card shadow-sm p-3 border-start border-primary border-5">
+                                    <h4 class="mb-1">B.Sc. in Software Engineering</h4>
+                                    <p class="mb-1 text-muted">Daffodil International University (DIU)</p>
+                                    <span class="badge bg-primary">2023 - 2026 (Expected Graduation)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row align-items-center mb-4">
+                            <div class="col-1 text-center">
+                                <i class="fas fa-school fa-2x text-success"></i>
+                                <div style="height: 60px; width: 2px; background-color: #28a745; margin: 5px auto;"></div>
+                            </div>
+                            <div class="col-11">
+                                <div class="card shadow-sm p-3 border-start border-success border-5">
+                                    <h4 class="mb-1">Higher Secondary Certificate (HSC)</h4>
+                                    <p class="mb-1 text-muted">Rajendrapur Cantonment Public College</p>
+                                    <span class="badge bg-success">2020 | GPA: 5.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row align-items-center mb-4">
+                            <div class="col-1 text-center">
+                                <i class="fas fa-school fa-2x text-warning"></i>
+                            </div>
+                            <div class="col-11">
+                                <div class="card shadow-sm p-3 border-start border-warning border-5">
+                                    <h4 class="mb-1">Secondary School Certificate (SSC)</h4>
+                                    <p class="mb-1 text-muted">Rajendrapur Cantonment Public College</p>
+                                    <span class="badge bg-warning text-dark">2018 | GPA: 5.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="contact-page" class="content-section bg-white rounded shadow-lg">
+            <h2 class="text-center text-primary mb-5 fw-bold"><i class="fas fa-envelope-open-text me-2"></i> Let's Connect</h2>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h4 class="text-secondary mb-3">Direct Contact Details</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-3 p-2 border-bottom">
+                            <i class="fas fa-envelope me-3 text-danger"></i>
+                            <strong class="me-2">Email:</strong> <a href="mailto:jisan2305341333@diu.edu.bd" class="text-dark text-decoration-none">jisan2305341333@diu.edu.bd</a>
+                        </li>
+                        <li class="mb-3 p-2 border-bottom">
+                            <i class="fas fa-phone-alt me-3 text-success"></i>
+                            <strong class="me-2">Phone:</strong> <a href="tel:01614952576" class="text-dark text-decoration-none">01614952576</a>
+                        </li>
+                        <li class="mb-3 p-2 border-bottom">
+                            <i class="fab fa-github me-3 text-dark"></i>
+                            <strong class="me-2">GitHub:</strong> <a href="https://github.com/007Jisan" target="_blank" class="text-dark text-decoration-none">/007Jisan</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-6">
+                    <h4 class="text-secondary mb-3">Send Me a Message</h4>
+                    <form onsubmit="alert('Note: This form is a visual mock-up and will not submit data without a server-side script.'); return false;">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="app-footer text-center py-3 mt-5">
+        <div class="container">
+            <p class="mb-1">&copy; 2025 Abidur Rahman Jisan. Software Engineering Portfolio.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="https://github.com/007Jisan" target="_blank" class="text-white-50"><i class="fab fa-github fa-lg"></i></a>
+                <a href="mailto:jisan2305341333@diu.edu.bd" class="text-white-50"><i class="fas fa-envelope fa-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    </body>
+</html>
